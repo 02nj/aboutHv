@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark Discord-inspired Theme */
+  --background: 223 7% 20%;      /* #2f3136 */
+  --foreground: 0 0% 100%;       /* #ffffff */
+  
+  --card: 220 8% 23%;            /* #36393f */
+  --card-foreground: 210 20% 98%;
+
+  --popover: 220 8% 23%;
+  --popover-foreground: 210 20% 98%;
+
+  --primary: 235 86% 65%;        /* #5865F2 (Discord Blurple) */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 145 65% 39%;      /* #3ba55c (Discord Green) */
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 223 7% 20%;
+  --muted-foreground: 216 4% 74%; /* #b9bbbe */
+
+  --accent: 235 86% 65%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 359 87% 59%;    /* #ed4245 */
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 216 7% 14%;          /* #202225 */
+  --input: 216 7% 14%;
+  --ring: 235 86% 65%;
+
+  --radius: 0.5rem;
+
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Inter', 'Cairo', sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(88, 101, 242, 0.08) 0%, transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(235, 69, 158, 0.05) 0%, transparent 25%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight;
+  }
+  
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--card));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+.glass-card {
+  @apply bg-card/80 backdrop-blur-md border border-white/5 shadow-xl;
+}
